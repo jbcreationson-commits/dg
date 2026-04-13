@@ -40,7 +40,7 @@ const securityHeaders = [
 const nextConfig = {
   compress: true,
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true,
   },
   images: {
     remotePatterns: [
