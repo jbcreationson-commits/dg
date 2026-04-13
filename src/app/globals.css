@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #090909;
+  background-image:
+    radial-gradient(circle at top, rgba(204, 0, 0, 0.24), transparent 30%),
+    radial-gradient(circle at 80% 15%, rgba(255, 68, 68, 0.16), transparent 18%),
+    linear-gradient(180deg, #090909 0%, #060606 100%);
+  color: #f6f3ef;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgba(255, 68, 68, 0.3);
+  color: #fff;
+}
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply font-body antialiased;
+  }
+
+  a,
+  button {
+    @apply outline-none transition duration-300;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-brand-gradient bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-shift;
+  }
+
+  .section-shell {
+    @apply relative overflow-hidden;
+  }
+
+  .surface-panel {
+    @apply rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+}
+
+@layer utilities {
+  .mask-fade-b {
+    mask-image: linear-gradient(180deg, black 70%, transparent 100%);
+  }
+}
